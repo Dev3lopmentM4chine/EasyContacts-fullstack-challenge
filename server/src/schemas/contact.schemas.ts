@@ -11,7 +11,6 @@ const contactReturnSchema = contactSchema.extend({
   id: z.string().uuid(),
   createdAt: z.string(),
   updatedAt: z.string(),
-  user: userReturnSchema,
 });
 
 const updateContactSchema = z.object({

@@ -9,16 +9,15 @@ const ensureContactExists = async (
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const contactRepository: Repository<Contact> = AppDataSource.getRepository(Contact);
+  const contactRepository: Repository<Contact> =
+    AppDataSource.getRepository(Contact);
 
   const contactId: string = req.params.id;
 
-  const findContact: Contact | null = await contactRepository.findOne({
-    where: {
-      id: contactId,
-    },
+  const findContact: Contact | null = await contactRepository.findOneBy({
+    id: contactId,
 
-    withDeleted: true,
+    // withDeleted: true,
   });
 
   if (!findContact) throw new AppErrors("Contact not found!", 404);

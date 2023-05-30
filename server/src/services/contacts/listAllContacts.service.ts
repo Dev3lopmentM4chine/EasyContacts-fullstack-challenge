@@ -3,22 +3,24 @@ import AppDataSource from "../../data-source";
 import { tContactReturn } from "../../interfaces/contacts.interfaces";
 import Contact from "../../entities/contacts.entity";
 import { listAllContactsSchema } from "../../schemas/contact.schemas";
+import User from "../../entities/users.entity";
 
 const listAllContactsService = async (
   userId: string
 ): Promise<tContactReturn[]> => {
-  const contactsRepository: Repository<Contact> =
-    AppDataSource.getRepository(Contact);
+  const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
-  const contacts = await contactsRepository.find({
+  const user: User | null = await userRepository.findOne({
+    where: {
+      id: userId,
+    },
+
     relations: {
-      user: true,
+      contacts: true,
     },
   });
 
-  // console.log(contacts);
-
-  const validatedReturn = listAllContactsSchema.parse(contacts);
+  const validatedReturn = listAllContactsSchema.parse(user?.contacts);
 
   return validatedReturn;
 };

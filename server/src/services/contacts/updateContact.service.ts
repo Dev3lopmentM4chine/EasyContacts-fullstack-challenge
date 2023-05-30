@@ -18,8 +18,6 @@ const updateContactService = async (
     id: contactId,
   });
 
-  // console.log(oldContactData)
-
   const newContactData = contactRepository.create({
     ...oldContactData,
     ...contactData,
