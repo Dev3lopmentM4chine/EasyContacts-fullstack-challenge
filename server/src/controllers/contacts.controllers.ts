@@ -7,22 +7,22 @@ const createContactController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  req.body.user = req.user.id;
-
-  const contact = await createContactService(req.body);
+  const contact = await createContactService(req.body, req.user.id);
 
   return res.status(201).json(contact);
 };
 
+//Erro no retorno
 const listAllContactsController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const contacts = await listAllContactsService();
+  const contacts = await listAllContactsService(req.user.id);
 
   return res.status(200).json(contacts);
 };
 
+//Erro no retorno
 const updateContactController = async (
   req: Request,
   res: Response

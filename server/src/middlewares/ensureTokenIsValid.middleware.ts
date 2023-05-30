@@ -22,7 +22,7 @@ const ensureTokenIsValid = (
     }
 
     req.user = {
-      id: decoded.sub
+      id: decoded.sub,
     };
   });
 

@@ -30,7 +30,6 @@ class Contact {
   updatedAt: string;
 
   @ManyToOne(() => User, (user) => user.contacts, { onDelete: "CASCADE" })
-  @JoinColumn({ name: "user_id" })
   user: User;
 }
 

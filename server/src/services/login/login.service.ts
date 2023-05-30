@@ -6,6 +6,7 @@ import User from "../../entities/users.entity";
 import { AppErrors } from "../../errors";
 import { tLogin } from "../../interfaces/login.interfaces";
 import jwt from "jsonwebtoken";
+import { userReturnSchema } from "../../schemas/users.schemas";
 
 const loginService = async (loginData: tLogin): Promise<string> => {
   const usersRepository: Repository<User> = AppDataSource.getRepository(User);
@@ -38,7 +39,7 @@ const loginService = async (loginData: tLogin): Promise<string> => {
     process.env.SECRET_KEY!,
     {
       expiresIn: "24h",
-      subject: String(user.id),
+      subject: user.id,
     }
   );
 

@@ -4,19 +4,23 @@ import { tContactReturn } from "../../interfaces/contacts.interfaces";
 import Contact from "../../entities/contacts.entity";
 import { listAllContactsSchema } from "../../schemas/contact.schemas";
 
-const listAllContactsService = async (): Promise<[]> => {
-  const userRepository: Repository<Contact> =
+const listAllContactsService = async (
+  userId: string
+): Promise<tContactReturn[]> => {
+  const contactsRepository: Repository<Contact> =
     AppDataSource.getRepository(Contact);
 
-  const contacts = await userRepository.find({
-    select: {
-      user: {
-        id: true
-      }
-    }
+  const contacts = await contactsRepository.find({
+    relations: {
+      user: true,
+    },
   });
 
-  return contacts;
+  // console.log(contacts);
+
+  const validatedReturn = listAllContactsSchema.parse(contacts);
+
+  return validatedReturn;
 };
 
 export default listAllContactsService;

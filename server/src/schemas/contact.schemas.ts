@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { userReturnSchema } from "./users.schemas";
 
 const contactSchema = z.object({
   fullName: z.string().max(50),
@@ -10,7 +11,7 @@ const contactReturnSchema = contactSchema.extend({
   id: z.string().uuid(),
   createdAt: z.string(),
   updatedAt: z.string(),
-  user: z.string().uuid(),
+  user: userReturnSchema,
 });
 
 const updateContactSchema = z.object({
