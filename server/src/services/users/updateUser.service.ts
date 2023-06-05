@@ -1,4 +1,3 @@
-import { Response } from "express";
 import { iUpdateUser, tUserReturn } from "../../interfaces/users.interfaces";
 import { Repository } from "typeorm";
 import User from "../../entities/users.entity";

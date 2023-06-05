@@ -11,7 +11,6 @@ import ensureDataIsValid from "../middlewares/ensureDataIsValid.middleware";
 import { contactSchema, updateContactSchema } from "../schemas/contact.schemas";
 import ensureTokenIsValid from "../middlewares/ensureTokenIsValid.middleware";
 import ensureOwnerContact from "../middlewares/contacts/ensureOwnerContact.middleware";
-import listAllContactsService from "../services/contacts/listAllContacts.service";
 import ensureContactExists from "../middlewares/contacts/ensureContactExists.middleware";
 
 const contactsRouter: Router = Router();

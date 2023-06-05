@@ -2,7 +2,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -29,7 +28,7 @@ class Contact {
   @UpdateDateColumn({ type: "date" })
   updatedAt: string;
 
-  @ManyToOne(() => User, (user) => user.contacts, { onDelete: "CASCADE" })
+  @ManyToOne(() => User, (user: User) => user.contacts, { onDelete: "CASCADE" })
   user: User;
 }
 

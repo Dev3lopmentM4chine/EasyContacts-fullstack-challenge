@@ -3,7 +3,6 @@ import {
   contactReturnSchema,
   contactSchema,
   listAllContactsSchema,
-  updateContactSchema,
 } from "../schemas/contact.schemas";
 
 type tContact = z.infer<typeof contactSchema>;

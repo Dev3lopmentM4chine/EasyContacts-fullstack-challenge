@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { userReturnSchema } from "./users.schemas";
 
 const contactSchema = z.object({
   fullName: z.string().max(50),

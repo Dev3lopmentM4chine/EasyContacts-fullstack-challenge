@@ -1,7 +1,6 @@
 import { Repository } from "typeorm";
 import AppDataSource from "../../data-source";
 import { tContactReturn } from "../../interfaces/contacts.interfaces";
-import Contact from "../../entities/contacts.entity";
 import { listAllContactsSchema } from "../../schemas/contact.schemas";
 import User from "../../entities/users.entity";
 

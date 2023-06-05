@@ -1,12 +1,10 @@
 import { compare } from "bcryptjs";
-import { Request, Response } from "express";
 import { Repository } from "typeorm";
 import AppDataSource from "../../data-source";
 import User from "../../entities/users.entity";
 import { AppErrors } from "../../errors";
 import { tLogin } from "../../interfaces/login.interfaces";
 import jwt from "jsonwebtoken";
-import { userReturnSchema } from "../../schemas/users.schemas";
 
 const loginService = async (loginData: tLogin): Promise<string> => {
   const usersRepository: Repository<User> = AppDataSource.getRepository(User);
