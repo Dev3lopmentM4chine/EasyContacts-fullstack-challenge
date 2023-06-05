@@ -1,30 +1,31 @@
+import FormSignUp from "@/components/formSignup";
 import Logo from "@/components/logo";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 import GithubLogo from "../../assets/githubLogo.svg";
 import GoogleLogo from "../../assets/googleLogo.svg";
 
-import FormSignIn from "@/components/formSignin";
-
-export default function SignIn() {
+export default function SignUp() {
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center gap-10 bg-[url('../assets/bg-image.svg')] bg-cover">
+    <div className="flex h-screen w-screen py-2 px-2 flex-col items-center justify-center gap-10 bg-[url('../assets/bg-image.svg')] bg-cover">
       <div className="hidden flex-row items-center justify-between md:flex md:w-full md:max-w-[721px]">
         <Logo />
         <p className="flex flex-row gap-1 text-white">
-          Dont have an account?
-          <Link href={"/signup"} className="text-brand">
-            Sign up!
+          have an account?
+          <Link href={"/signin"} className="text-brand">
+            Sign in!
           </Link>
         </p>
       </div>
 
-      <main className="flex h-full w-full flex-col justify-between md:max-h-[34.8125rem] md:max-w-[25rem]">
+      <main className="flex h-full w-full flex-col justify-between md:min-h-[34.8125rem] md:max-w-[51.25rem]">
         <div className="flex h-[205.05px] w-full flex-col items-center justify-between">
           <div className="flex w-full flex-col items-center justify-center">
-            <h1 className="text-4xl font-semibold text-white">Welcome Back</h1>
-            <p className="text-lg text-white">Login into your account</p>
+            <h1 className="text-4xl font-semibold text-white">
+              Get Started With EasyContact
+            </h1>
+            <p className="text-lg text-white">Create your account with</p>
           </div>
 
           <div className="flex h-[2.8125rem] w-[16.625rem] items-center justify-between">
@@ -45,10 +46,10 @@ export default function SignIn() {
             </Link>
           </div>
 
-          <p className="text-lg text-white md:text-xs">Or continue with</p>
+          <p className="text-lg text-white md:text-xl">Or continue with</p>
         </div>
 
-        <FormSignIn />
+        <FormSignUp/>
       </main>
     </div>
   );
