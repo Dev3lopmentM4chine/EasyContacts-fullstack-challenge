@@ -3,7 +3,6 @@
     "target": "ES2022",
     "module": "CommonJS",
     "typeRoots": ["src/@types", "node_modules/@types"],
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "exactOptionalPropertyTypes": true,
