@@ -36,7 +36,7 @@ const Login = () => {
           <div className="logo">
             <Logo />
             <p className="signupLink">
-              Dont have an account? <a href="/register">Sign up!</a>
+              Dont have an account? <a href="/signup">Sign up!</a>
             </p>
           </div>
 
@@ -49,7 +49,6 @@ const Login = () => {
             <div className="containerInput">
               <div>
                 <Input
-                  errors={errors}
                   register={register}
                   idValue="email"
                   title="Email"
@@ -62,7 +61,6 @@ const Login = () => {
               </div>
               <div>
                 <Input
-                  errors={errors}
                   register={register}
                   idValue="password"
                   title="Password"
@@ -77,7 +75,7 @@ const Login = () => {
 
             <div className="signupContainer">
               <p className="signupLink">
-                Dont have an account? <a href="/register">Sign up!</a>
+                Dont have an account? <a href="/signup">Sign up!</a>
               </p>
             </div>
 

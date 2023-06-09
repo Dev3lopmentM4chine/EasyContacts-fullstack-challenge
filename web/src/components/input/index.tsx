@@ -2,20 +2,20 @@ import StyledInput from "./style";
 
 interface iInputProps {
   register: any;
-  errors: any;
   title: string;
   placeholder: string;
   idValue: string;
   type: string;
+  pattern?: string;
 }
 
 const Input = ({
   register,
-  errors,
   title,
   placeholder,
   type,
   idValue,
+  pattern,
 }: iInputProps) => {
   return (
     <StyledInput>
@@ -25,6 +25,7 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         {...register(idValue)}
+        pattern={ pattern ? pattern : null}
       />
     </StyledInput>
   );
