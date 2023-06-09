@@ -6,7 +6,9 @@ const GlobalStyles = createGlobalStyle`
         --color-primary: #20DC49;
         --color-secondary: #EB5757;
         --color-white: #FFFFFF;
+        --color-black: #000000;
         --color-gray-100: #333333;
+        --color-gray-60: #5A5A5A;
         --color-gray-50: #828282;
         --color-gray-40:#999999;
         --color-gray-30: #BDBDBD;
@@ -22,6 +24,9 @@ const GlobalStyles = createGlobalStyle`
         --font-size-5: 1.375rem;
         --font-size-6: 1.625rem;
         --font-size-7: 1.6875rem;
+        --font-size-8: 1.875rem;
+        --font-size-9: 2.125rem;
+        --font-size-10: 2.375rem;
 
         /* Font: Weight */
         --font-weight-0: 400;
@@ -31,8 +36,9 @@ const GlobalStyles = createGlobalStyle`
         --font-weight-4: 800;
 
         /* Radius */
-        --radius-0: .5rem;
         --radius-1: .25rem;
+        --radius-2: .5rem;
+        --radius-3: .625rem;
 }   
 `;
 

@@ -5,7 +5,7 @@ const Reset = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Roboto", sans-serif;
+        font-family: "Poppins", sans-serif;
     }
 
     input{
@@ -22,6 +22,11 @@ const Reset = createGlobalStyle`
 
     ul, ol, li{
         list-style: none;
+    }
+
+    .errorMessage{
+        color: var(--color-secondary);
+        font-size: var(--font-size-2);
     }
 `;
 

@@ -5,11 +5,7 @@ import {
   userSchema,
 } from "../../schemas/user.schemas";
 import { loginSchema } from "../../schemas/login.schemas";
-import {
-  contactReturnSchema,
-  contactSchema,
-  listAllContactsSchema,
-} from "../../schemas/contact.schemas";
+
 
 // Login
 type tLogin = z.infer<typeof loginSchema>;
@@ -24,24 +20,10 @@ interface iUpdateUser {
   password: string;
 }
 
-// Contact
-type tContact = z.infer<typeof contactSchema>;
-type tContactReturn = z.infer<typeof contactReturnSchema>;
-type tListAllContact = z.infer<typeof listAllContactsSchema>;
-interface iUpdateContact {
-  fullName?: string;
-  email?: string;
-  phoneNumber?: string;
-}
-
 export {
   tUser,
   tUserReturn,
   iUpdateUser,
   tListAllUsers,
-  tLogin,
-  tContact,
-  tContactReturn,
-  tListAllContact,
-  iUpdateContact,
+  tLogin
 };
