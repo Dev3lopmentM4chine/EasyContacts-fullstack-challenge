@@ -23,7 +23,10 @@ const UserProvider = ({ children }: tUserProviderProps) => {
   const login = async (data: tLogin): Promise<void> => {
     try {
       const response = await api.post("/login", data);
-      localStorage.setItem("@EasyContactsToken", response.data.token);
+      localStorage.setItem(
+        "@EasyContactsToken",
+        JSON.stringify(response.data.token)
+      );
       navigate("/home");
     } catch (error) {
       console.log(error);
@@ -41,7 +44,7 @@ const UserProvider = ({ children }: tUserProviderProps) => {
       toast.success("Account created!");
       setTimeout(() => {
         navigate("/login");
-      }, 5000);
+      }, 3000);
     } catch (error) {
       console.log(error);
       if (error instanceof AxiosError) {

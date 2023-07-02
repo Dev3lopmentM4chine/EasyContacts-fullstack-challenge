@@ -1,4 +1,4 @@
-import Container from "../../components/container";
+import Container from "../../components/Container";
 import StyledLogin from "./style";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,10 +6,10 @@ import { loginSchema } from "../../schemas/login.schemas";
 import { tLogin } from "../../context/user/interfaces";
 import { UserContext } from "../../context/user";
 import { useContext } from "react";
-import Input from "../../components/input";
-import Logo from "../../components/logo";
-import Button from "../../components/button";
-import backgroundImage from "../../assets/bg.svg"
+import Input from "../../components/Input";
+import Logo from "../../components/Logo";
+import Button from "../../components/Button";
+import backgroundImage from "../../assets/bg.svg";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -17,16 +17,13 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<tLogin>({
-    mode: "onBlur",
     resolver: zodResolver(loginSchema),
   });
 
   const submit = (formData: tLogin) => {
     login(formData);
-    reset();
   };
 
   return (

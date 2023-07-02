@@ -7,6 +7,7 @@ interface iInputProps {
   idValue: string;
   type: string;
   pattern?: string;
+  value?: string
 }
 
 const Input = ({
@@ -16,6 +17,7 @@ const Input = ({
   type,
   idValue,
   pattern,
+  value
 }: iInputProps) => {
   return (
     <StyledInput>
@@ -26,6 +28,7 @@ const Input = ({
         placeholder={placeholder}
         {...register(idValue)}
         pattern={ pattern ? pattern : null}
+        value={ value && value}
       />
     </StyledInput>
   );

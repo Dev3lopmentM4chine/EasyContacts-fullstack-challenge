@@ -5,11 +5,11 @@ import { UserContext } from "../../context/user";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../../schemas/user.schemas";
-import Container from "../../components/container";
+import Container from "../../components/Container";
 import backgroundImage from "../../assets/bg.svg";
-import Logo from "../../components/logo";
-import Button from "../../components/button";
-import Input from "../../components/input";
+import Logo from "../../components/Logo";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
 
 const Signup = () => {
   const { signup } = useContext(UserContext);
@@ -17,16 +17,13 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<tUser>({
-    mode: "onBlur",
     resolver: zodResolver(userSchema),
   });
 
   const submit = (formData: tUser) => {
     signup(formData);
-    reset();
   };
 
   return (
@@ -93,7 +90,6 @@ const Signup = () => {
                   placeholder="ex: (xx)-xxxx-xxxx"
                   title="Phone Number"
                   type="tel"
-                  pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}"
                 />
                 {errors.phoneNumber ? (
                   <p className="errorMessage">{errors.phoneNumber.message}</p>

@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import GlobalStyles from "../styles/globalStyles.ts";
-import Reset from "../styles/reset.ts";
+import GlobalStyles from "../styles/GlobalStyles.ts";
+import Reset from "../styles/Reset.ts";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "../context/user/index.tsx";
 import { ToastContainer } from "react-toastify";
