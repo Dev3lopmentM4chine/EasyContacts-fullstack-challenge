@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
 const StyledCardContact = styled.div`
-  width: 100%;
-  height: 350px;
+  min-width: 15.625rem;
+  height: 21.875rem;
   background-color: var(--color-black);
   transition: all.5s;
   cursor: pointer;
@@ -35,6 +35,14 @@ const StyledCardContact = styled.div`
     object-fit: cover;
     background-color: var(--color-gray-60);
     color: var(--color-primary);
+  }
+
+  .fullName,
+  .email {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .fullName {
@@ -77,12 +85,6 @@ const StyledCardContact = styled.div`
     justify-content: start;
     gap: 10px;
 
-    .fullName, .email {
-      max-width: 200px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
     .profileImage {
       width: 90px;
       height: 90px;

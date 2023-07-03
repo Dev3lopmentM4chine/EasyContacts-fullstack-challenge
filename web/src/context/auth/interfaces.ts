@@ -4,6 +4,7 @@ import {
   contactSchema,
   listAllContactsSchema,
 } from "../../schemas/contact.schemas";
+import { updateUserSchema, userReturnSchema } from "../../schemas/user.schemas";
 
 // Contact
 type tContact = z.infer<typeof contactSchema>;
@@ -14,5 +15,14 @@ interface iUpdateContact {
   email?: string;
   phoneNumber?: string;
 }
-
 export { tContact, tContactReturn, tListAllContact, iUpdateContact };
+
+//User
+type tUserReturn = z.infer<typeof userReturnSchema>;
+interface iUpdateUser {
+  fullName?: string;
+  email?: string;
+  phoneNumber?: string;
+}
+
+export { tUserReturn, iUpdateUser };
