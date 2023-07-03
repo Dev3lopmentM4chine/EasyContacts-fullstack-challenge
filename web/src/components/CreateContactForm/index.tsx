@@ -8,7 +8,11 @@ import Input from "../Input";
 import Button from "../Button";
 import StyledCreateContactForm from "./style";
 
-const CreateContactForm = () => {
+interface iCreateContactFormProps {
+  onClose: () => void;
+}
+
+const CreateContactForm = ({ onClose }: iCreateContactFormProps) => {
   const { createContact } = useContext(AuthContext);
 
   const {
@@ -21,6 +25,7 @@ const CreateContactForm = () => {
 
   const submit: SubmitHandler<tContact> = (formData) => {
     createContact(formData);
+    onClose();
   };
 
   return (
@@ -60,15 +65,17 @@ const CreateContactForm = () => {
               placeholder="ex: (xx)-xxxx-xxxx"
               title="Phone Number"
               type="tel"
-              pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}"
             />
             {errors.phoneNumber ? (
               <p className="errorMessage">{errors.phoneNumber.message}</p>
             ) : null}
           </div>
         </div>
-
-        <Button type="submit" text="Create contact" />
+        
+        <div className="containerButton">
+          <Button type="button" text="Cancel" onClick={onClose} />
+          <Button type="submit" text="Create contact" />
+        </div>
       </StyledCreateContactForm>
     </>
   );

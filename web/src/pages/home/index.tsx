@@ -32,7 +32,7 @@ const Home = () => {
         onClose={handleCloseCreateContactModal}
         title="Register a contact"
       >
-        <CreateContactForm />
+        <CreateContactForm onClose={handleCloseCreateContactModal} />
       </Modal>
 
       <StyledHome>
@@ -48,8 +48,8 @@ const Home = () => {
                 </span>
               </div>
             ) : (
-              contacts.map((el) => {
-                return <CardContact key={el.id} contactData={el} />;
+              contacts.map((contact) => {
+                return <CardContact key={contact.id} contact={contact} />;
               })
             )}
           </ul>

@@ -2,12 +2,11 @@ import { styled } from "styled-components";
 
 const StyledCardContact = styled.div`
   width: 100%;
-  min-width: 240px;
   height: 350px;
   background-color: var(--color-black);
   transition: all.5s;
   cursor: pointer;
-  border-left: 2px solid;
+  border: 2px solid;
   padding: 10px;
 
   display: flex;
@@ -73,25 +72,16 @@ const StyledCardContact = styled.div`
   }
 
   @media screen and (min-width: 50rem) {
-    width: 700px;
     height: 116px;
     flex-direction: row;
     justify-content: start;
     gap: 10px;
 
-    &:hover {
-      transition: all.5s;
-      border-color: var(--color-primary);
-      box-shadow: 5px 5px 5px 0px var(--color-primary);
-    }
-    &:hover .profileImage {
-      border-color: var(--color-primary);
-    }
-    &:hover .email {
-      color: var(--color-primary);
-    }
-    &:hover .phoneNumber {
-      color: var(--color-primary);
+    .fullName, .email {
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .profileImage {
       width: 90px;

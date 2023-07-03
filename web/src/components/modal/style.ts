@@ -14,12 +14,13 @@ const StyledModal = styled.div`
   overflow: auto;
 
   .modal {
+    background-color: var(--color-gray-60);
+
     width: 100%;
     max-width: 32.5rem;
     height: fit-content;
     padding: 1rem 1.5rem;
     margin: 10px;
-    background-color: white;
     border-radius: 0.5rem;
     overflow: hidden;
   }
@@ -31,21 +32,25 @@ const StyledModal = styled.div`
     align-items: center;
     justify-content: space-between;
   }
-  /* .modal-closeModalContainer p {
-    font-size: var(--font-body-1);
-    font-weight: var(--font-weight-500);
-    color: var(--color-grey0);
+  .modal-closeModalContainer p {
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weight-1);
+    color: var(--color-gray-100);
   }
   .modal-closeModalContainer button {
-    font-size: var(--font-heading-6);
-    color: var(--color-grey4);
-    font-weight: var(--font-weight-500);
-  }
-
-  .modal-closeModalContainer button:hover {
-    color: var(--color-grey0);
+    font-size: var(--font-size-5);
+    color: var(--color-gray-100);
+    font-weight: var(--font-weight-1);
     transition: all.5s;
-  } */
+  }
+  .modal-closeModalContainer button:hover {
+    color: var(--color-gray-60);
+    transition: all.5s;
+  }
+  .modal-content {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export default StyledModal;

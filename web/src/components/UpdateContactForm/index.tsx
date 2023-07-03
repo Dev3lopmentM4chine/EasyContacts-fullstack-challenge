@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { tContact } from "../../context/auth/interfaces";
+import {
+  iUpdateContact,
+  tContact,
+  tContactReturn,
+} from "../../context/auth/interfaces";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema } from "../../schemas/contact.schemas";
 import Input from "../Input";
@@ -9,11 +13,11 @@ import { AuthContext } from "../../context/auth";
 import StyledUpdateContactForm from "./style";
 
 interface iModalContactProps {
-  contactData: tContact;
-  id: string;
+  contact: tContactReturn;
+  onClose: () => void;
 }
 
-const UpdateContactForm = ({ contactData, id }: iModalContactProps) => {
+const UpdateContactForm = ({ contact, onClose }: iModalContactProps) => {
   const { updateContact } = useContext(AuthContext);
 
   const {
@@ -22,10 +26,26 @@ const UpdateContactForm = ({ contactData, id }: iModalContactProps) => {
     formState: { errors },
   } = useForm<tContact>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      fullName: contact.fullName,
+      email: contact.email,
+      phoneNumber: contact.phoneNumber,
+    },
   });
 
   const submit: SubmitHandler<tContact> = (formData) => {
-    updateContact(formData, id);
+    if (formData.email === contact.email) {
+      const newFormData: iUpdateContact = {
+        fullName: formData.fullName,
+        phoneNumber: formData.phoneNumber,
+      };
+
+      updateContact(newFormData, contact.id);
+      onClose();
+    }
+
+    updateContact(formData, contact.id);
+    onClose();
   };
 
   return (
@@ -39,7 +59,6 @@ const UpdateContactForm = ({ contactData, id }: iModalContactProps) => {
               placeholder="ex: Lucas da Silva"
               title="Full Name"
               type="text"
-              value={contactData.fullName}
             />
             {errors.fullName ? (
               <p className="errorMessage">{errors.fullName.message}</p>
@@ -53,7 +72,6 @@ const UpdateContactForm = ({ contactData, id }: iModalContactProps) => {
               placeholder="ex: example@gmail.com"
               title="Email"
               type="email"
-              value={contactData.email}
             />
             {errors.email ? (
               <p className="errorMessage">{errors.email.message}</p>
@@ -67,8 +85,6 @@ const UpdateContactForm = ({ contactData, id }: iModalContactProps) => {
               placeholder="ex: (xx)-xxxx-xxxx"
               title="Phone Number"
               type="tel"
-              pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}"
-              value={contactData.phoneNumber}
             />
             {errors.phoneNumber ? (
               <p className="errorMessage">{errors.phoneNumber.message}</p>
@@ -76,7 +92,10 @@ const UpdateContactForm = ({ contactData, id }: iModalContactProps) => {
           </div>
         </div>
 
-        <Button type="submit" text="Update contact" />
+        <div className="containerButton">
+          <Button type="button" text="Cancel" onClick={onClose} />
+          <Button type="submit" text="Update contact" />
+        </div>
       </StyledUpdateContactForm>
     </>
   );

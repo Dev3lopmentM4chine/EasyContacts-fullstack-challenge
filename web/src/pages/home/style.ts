@@ -5,6 +5,23 @@ const StyledHome = styled.div`
   height: 100vh;
   background-color: var(--color-gray-60);
 
+  .painel {
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+  }
+
   .noContacts {
     display: flex;
     flex-direction: column;

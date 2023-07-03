@@ -5,9 +5,10 @@ import StyledDeleteContactForm from "./style";
 
 interface iDeleteContactForm {
   id: string;
+  onClose: () => void;
 }
 
-const DeleteContactForm = ({ id }: iDeleteContactForm) => {
+const DeleteContactForm = ({ id, onClose }: iDeleteContactForm) => {
   const { deleteContact } = useContext(AuthContext);
 
   return (
@@ -17,7 +18,10 @@ const DeleteContactForm = ({ id }: iDeleteContactForm) => {
         <Button
           type="button"
           text="Delete Contact"
-          onClick={() => deleteContact(id)}
+          onClick={() => {
+            deleteContact(id);
+            onClose();
+          }}
         />
       </StyledDeleteContactForm>
     </>

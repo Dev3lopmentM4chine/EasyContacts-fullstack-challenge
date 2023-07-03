@@ -27,7 +27,7 @@ const Modal = ({ children, isOpen, onClose, title }: iBaseModalProps) => {
           <button onClick={onClose}>X</button>
         </div>
 
-        <div className="modal-content">{children}</div>
+        <div className="modal-content"> {children}</div>
       </div>
     </StyledModal>
   );

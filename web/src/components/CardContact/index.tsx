@@ -12,7 +12,11 @@ import Modal from "../Modal";
 import UpdateContactForm from "../UpdateContactForm";
 import DeleteContactForm from "../DeleteContactForm";
 
-const CardContact = (contactData: tContactReturn) => {
+interface iCardContactProps {
+  contact: tContactReturn;
+}
+
+const CardContact = ({ contact }: iCardContactProps) => {
   const [openUpdateContactModal, setOpenUpdateContactModal] =
     useState<boolean>(false);
   const [openDeleteContactModal, setOpenDeleteContactModal] =
@@ -31,7 +35,10 @@ const CardContact = (contactData: tContactReturn) => {
         onClose={handleCloseUpdateContactModal}
         title="Edit contact"
       >
-        <UpdateContactForm contactData={contactData} id={contactData.id} />
+        <UpdateContactForm
+          contact={contact}
+          onClose={handleCloseUpdateContactModal}
+        />
       </Modal>
 
       <Modal
@@ -39,23 +46,26 @@ const CardContact = (contactData: tContactReturn) => {
         onClose={handleCloseDeleteContactModal}
         title="Edit contact"
       >
-        <DeleteContactForm id={contactData.id} />
+        <DeleteContactForm
+          id={contact.id}
+          onClose={handleCloseDeleteContactModal}
+        />
       </Modal>
 
       <StyledCardContact>
         <div className="profileImage">
           <IoIosContact />
         </div>
-        <h3 className="fullName">{contactData.fullName}</h3>
+        <h3 className="fullName">{contact.fullName}</h3>
 
         <div className="email">
           <AiOutlineMail />
-          <p>{contactData.email}</p>
+          <p>{contact.email}</p>
         </div>
 
         <div className="phoneNumber">
           <AiOutlinePhone />
-          <span>{contactData.phoneNumber}</span>
+          <span>{contact.phoneNumber}</span>
         </div>
 
         <div className="menu">
