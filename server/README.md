@@ -1,4 +1,4 @@
-# Documentação da Página Frontend
+# Documentação da API
 
 Esta documentação apresenta informações sobre a API do projeto EasyContacts, incluindo as tecnologias utilizadas e o passo a passo para rodalo localmente.
 
@@ -21,4 +21,7 @@ A página frontend do Motors Shop foi desenvolvida utilizando as seguintes tecno
 - Crie um arquivo ".env" e preencha com os dados do seu banco de dados local(use o ".env.exemple" como template).
 - Rode o comando "yarn run typeorm migration:run --d src/data-source.ts" para rodar as migrations(para que de certo é necessario ter feito o passo anterior)
 - Rode o comando "yarn dev" ou "npm run dev" para iniciar o projeto localmente;
+
+- Documentação da API: https://easycontacts-api-doc.vercel.app/
+- Caso queira testar sem ter que rodar o projeto localmente use o deploy: https://easycontacts-fullstack-challenge-production.up.railway.app
 
