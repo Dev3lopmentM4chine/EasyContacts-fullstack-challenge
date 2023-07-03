@@ -22,3 +22,5 @@ A página frontend do Motors Shop foi desenvolvida utilizando as seguintes tecno
 - Rode o comando "yarn run typeorm migration:run --d src/data-source.ts" para rodar as migrations(para que de certo é necessario ter feito o passo anterior)
 - Rode o comando "yarn dev" ou "npm run dev" para iniciar o projeto localmente;
 
+- Documentação da API: https://easycontacts-api-doc.vercel.app/
+
