@@ -4,6 +4,7 @@ import {
   deleteUserController,
   listAllUsersController,
   updateUserController,
+  userLoggedController,
 } from "../controllers/users.controllers";
 import ensureDataIsValid from "../middlewares/ensureDataIsValid.middleware";
 import ensureTokenIsValid from "../middlewares/ensureTokenIsValid.middleware";
@@ -23,6 +24,8 @@ usersRoute.post(
 );
 
 usersRoute.get("", ensureTokenIsValid, listAllUsersController);
+
+usersRoute.get("/loggedInfo", ensureTokenIsValid, userLoggedController);
 
 usersRoute.patch(
   "/:id",
