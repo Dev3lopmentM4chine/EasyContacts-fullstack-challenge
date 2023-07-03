@@ -17,10 +17,6 @@ const loginService = async (loginData: tLogin): Promise<string> => {
     throw new AppErrors("Invalid credentials", 401);
   }
 
-  if (user.deletedAt !== null) {
-    throw new AppErrors("Invalid credentials", 401);
-  }
-
   const passwordValidate: boolean = await compare(
     loginData.password,
     user.password

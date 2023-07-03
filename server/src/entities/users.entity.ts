@@ -23,7 +23,7 @@ class User {
   @Column({ length: 50, unique: true })
   email: string;
 
-  @Column({ length: 120, unique: true })
+  @Column({ length: 120 })
   phoneNumber: string;
 
   @Column({ length: 120 })
@@ -34,9 +34,6 @@ class User {
 
   @UpdateDateColumn({ type: "date" })
   updatedAt: string;
-
-  @DeleteDateColumn({ nullable: true })
-  deletedAt: string | null | undefined;
 
   @BeforeInsert()
   @BeforeUpdate()

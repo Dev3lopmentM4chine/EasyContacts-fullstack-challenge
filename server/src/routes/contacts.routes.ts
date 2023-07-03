@@ -6,7 +6,6 @@ import {
   updateContactController,
 } from "../controllers/contacts.controllers";
 import ensureEmailAlreadyExists from "../middlewares/contacts/ensureEmailAlreadyExists.middleware";
-import ensurePhoneNumberAlreadyExists from "../middlewares/contacts/ensurePhoneNumberAlreadyExists.middleware";
 import ensureDataIsValid from "../middlewares/ensureDataIsValid.middleware";
 import { contactSchema, updateContactSchema } from "../schemas/contact.schemas";
 import ensureTokenIsValid from "../middlewares/ensureTokenIsValid.middleware";
@@ -20,7 +19,6 @@ contactsRouter.post(
   "",
   ensureDataIsValid(contactSchema),
   ensureTokenIsValid,
-  ensurePhoneNumberAlreadyExists,
   ensureEmailAlreadyExists,
   createContactController
 );
@@ -32,7 +30,6 @@ contactsRouter.patch(
   ensureDataIsValid(updateContactSchema),
   ensureTokenIsValid,
   ensureOwnerContact,
-  ensurePhoneNumberAlreadyExists,
   ensureEmailAlreadyExists,
   updateContactController
 );

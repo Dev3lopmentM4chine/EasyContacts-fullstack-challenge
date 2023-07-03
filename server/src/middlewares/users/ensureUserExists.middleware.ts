@@ -17,13 +17,9 @@ const ensureUserExists = async (
     where: {
       id: userId,
     },
-
-    withDeleted: true,
   });
 
   if (!findUser) throw new AppErrors("User not found!", 404);
-
-  if (findUser.deletedAt) throw new AppErrors("User not found!", 404);
 
   return next();
 };

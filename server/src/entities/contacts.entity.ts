@@ -19,7 +19,7 @@ class Contact {
   @Column({ length: 50, unique: true })
   email: string;
 
-  @Column({ length: 120, unique: true })
+  @Column({ length: 120 })
   phoneNumber: string;
 
   @CreateDateColumn({ type: "date" })

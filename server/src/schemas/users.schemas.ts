@@ -12,7 +12,6 @@ const userReturnSchema = userSchema
     id: z.string().uuid(),
     createdAt: z.string(),
     updatedAt: z.string(),
-    deletedAt: z.string().optional().nullable(),
   })
   .omit({ password: true });
 
