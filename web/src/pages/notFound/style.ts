@@ -8,6 +8,8 @@ const StyledNotFound = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 50px;
   
   h1 {
     font-size: var(--font-size-7);
