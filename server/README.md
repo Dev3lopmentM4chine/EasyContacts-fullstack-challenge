@@ -1,4 +1,4 @@
-# Documentação da Página Frontend
+# Documentação da API
 
 Esta documentação apresenta informações sobre a API do projeto EasyContacts, incluindo as tecnologias utilizadas e o passo a passo para rodalo localmente.
 
@@ -23,4 +23,5 @@ A página frontend do Motors Shop foi desenvolvida utilizando as seguintes tecno
 - Rode o comando "yarn dev" ou "npm run dev" para iniciar o projeto localmente;
 
 - Documentação da API: https://easycontacts-api-doc.vercel.app/
+- Caso queira testar sem ter que rodar o projeto localmente use o deploy: https://easycontacts-fullstack-challenge-production.up.railway.app
 
