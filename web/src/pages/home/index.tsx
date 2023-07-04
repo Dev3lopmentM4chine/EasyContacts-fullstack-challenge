@@ -9,6 +9,8 @@ import CreateContactForm from "../../components/CreateContactForm";
 import Button from "../../components/Button";
 import UpdateProfileForm from "../../components/UpdateProfileForm";
 import DeleteProfileForm from "../../components/DeleteProfileForm";
+import { IoIosContact } from "react-icons/io";
+import { AiOutlineAppstoreAdd, AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 
 const Home = () => {
   const { contacts, userLogged } = useContext(AuthContext);
@@ -53,7 +55,10 @@ const Home = () => {
         onClose={handleCloseUpdateProfileModal}
         title="Update profile"
       >
-        <UpdateProfileForm user={userLogged} onClose={handleCloseUpdateProfileModal} />
+        <UpdateProfileForm
+          user={userLogged}
+          onClose={handleCloseUpdateProfileModal}
+        />
       </Modal>
 
       <Modal
@@ -61,20 +66,31 @@ const Home = () => {
         onClose={handleCloseDeleteProfileModal}
         title="Delete profile"
       >
-        <DeleteProfileForm id={userLogged?.id} onClose={handleCloseDeleteProfileModal} />
+        <DeleteProfileForm
+          id={userLogged?.id}
+          onClose={handleCloseDeleteProfileModal}
+        />
       </Modal>
 
+      <Header />
       <StyledHome>
-        <Header />
         <div className="content">
           <div className="profile">
-            <div className="profile-photo"></div>
+            <div className="profilePhoto">
+              <IoIosContact />
+            </div>
 
-            <p className="profile-fullName">{userLogged?.fullName}</p>
-            <p className="profile-email">{userLogged?.email}</p>
-            <p className="profile-phoneNumber">{userLogged?.phoneNumber}</p>
+            <p className="profileFullName">{userLogged?.fullName}</p>
+            <p className="profileEmail">
+              <AiOutlineMail />
+              {userLogged?.email}
+            </p>
+            <p className="profilePhoneNumber">
+              <AiOutlinePhone />
+              {userLogged?.phoneNumber}
+            </p>
 
-            <div className="profile-buttons">
+            <div className="profileButtons">
               <Button
                 type="button"
                 text="Delete profile"
@@ -90,9 +106,11 @@ const Home = () => {
 
           <div className="cards">
             <div className="cards-painel">
-              <h3>Your contacts</h3>
+              <h3>
+                Your <span>contacts</span>
+              </h3>
               <button onClick={handleOpenCreateContactModal}>
-                Add contact
+                <AiOutlineAppstoreAdd />
               </button>
             </div>
 

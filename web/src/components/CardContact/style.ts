@@ -79,6 +79,10 @@ const StyledCardContact = styled.div`
     height: 30px;
   }
 
+  .menu .buttonUpdate > svg {
+    color: var(--color-primary);
+  }
+
   @media screen and (min-width: 50rem) {
     height: 116px;
     flex-direction: row;

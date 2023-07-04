@@ -8,6 +8,11 @@ const Reset = createGlobalStyle`
         font-family: "Poppins", sans-serif;
     }
 
+    html body{
+        width: 100%;
+        height: 100%;
+    }
+
     input{
         outline: none;
         border: none;

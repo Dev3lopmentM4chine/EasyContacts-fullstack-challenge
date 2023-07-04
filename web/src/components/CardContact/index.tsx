@@ -69,11 +69,11 @@ const CardContact = ({ contact }: iCardContactProps) => {
         </div>
 
         <div className="menu">
-          <button onClick={() => handleopenDeleteContactModal()}>
+          <button className="buttonDelete" onClick={() => handleopenDeleteContactModal()}>
             <FaTrash />
           </button>
 
-          <button onClick={() => handleopenUpdateContactModal()}>
+          <button className="buttonUpdate" onClick={() => handleopenUpdateContactModal()}>
             <AiOutlineAppstoreAdd />
           </button>
         </div>

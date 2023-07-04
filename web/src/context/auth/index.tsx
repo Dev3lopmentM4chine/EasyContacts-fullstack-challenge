@@ -58,7 +58,6 @@ const AuthProvider = ({ children }: tAuthProviderProps) => {
 
       if (response.status == 200) {
         setUserLogged(response.data);
-        // navigate("/login");
       }
     } catch (error) {
       console.log(error);
